@@ -4,7 +4,13 @@ const mongoose = require('mongoose');
 const connectDB = async ()=>{
 
     try{
-        await mongoose.connect(process.env.MONGO_URI);
+        await mongoose.connect(process.env.MONGO_URI, {
+            serverSelectionTimeoutMS: 30000,
+            socketTimeoutMS: 45000,
+            bufferMaxEntries: 0,
+            maxPoolSize: 10,
+            minPoolSize: 5
+        });
         console.log('DB connected')
         return { success: true, message: 'Database connected successfully' };
     }
