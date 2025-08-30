@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar:{
         type:String,
-        default: `${process.env.BASE_URL || 'http://localhost:4000'}/static/avatar_1.avif`
+        default: `${process.env.MAIN_URL}/static/avatar_1.avif`
     },
 
 },{
